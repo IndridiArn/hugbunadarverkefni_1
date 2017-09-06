@@ -5,6 +5,9 @@
 
 <html lang="en">
 
+
+<!--hvadaNotandi.jsp spyr notandan um nafn og DemoController tekur við því inntaki-->
+
 <head>
 	<meta charset ="utf-8"/>
     <title>Hver er notandinn</title>

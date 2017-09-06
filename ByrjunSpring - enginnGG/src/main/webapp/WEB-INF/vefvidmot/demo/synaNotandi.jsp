@@ -5,6 +5,8 @@
 
 <html lang="en">
 
+<!-- synaNotandi tekur við nafn breytunni frá DemoController og skilar henni á vef-->
+
 <head>
 	<meta charset ="utf-8"/>
     <title>Góðan daginn</title>
