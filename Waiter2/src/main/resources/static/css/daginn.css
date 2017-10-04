@@ -1,0 +1,17 @@
+
+table.restaurants {
+    border: 1px black solid;
+}
+
+.restaurants td {
+    padding: 15px;
+    text-align: left;
+}
+
+table.restaurants tr:nth-child(even) {
+    background-color: antiquewhite;
+}
+
+table.restaurants tr:nth-child(odd) {
+    background-color: azure;
+}
