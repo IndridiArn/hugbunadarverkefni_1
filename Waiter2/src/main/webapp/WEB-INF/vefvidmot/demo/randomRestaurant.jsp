@@ -9,20 +9,20 @@
     <title>Random Restaurant</title>
     <style>
 
-        table.restaurants {
+        table.randomRestaurant {
             border: 1px black solid;
         }
 
-        .restaurants td {
+        .randomRestaurant td {
             padding: 15px;
             text-align: left;
         }
 
-        table.restaurants tr:nth-child(even) {
+        table.randomRestaurant tr:nth-child(even) {
             background-color: antiquewhite;
         }
 
-        table.restaurants tr:nth-child(odd) {
+        table.randomRestaurant tr:nth-child(odd) {
             background-color: azure;
         }
 
@@ -70,7 +70,7 @@
 
     <form method="POST" action="/demo/book">
         <table>
-            I would like to book a table  bla
+            I would like to book a table  bla bla bla
             <tr>
                 <td>At</td><td> <input name="res" type="text" placeholder="Restaurant name" /> </td>
             </tr>
