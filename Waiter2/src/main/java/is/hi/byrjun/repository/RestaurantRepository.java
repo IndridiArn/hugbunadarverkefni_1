@@ -45,7 +45,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long>{
      * @return nafn veitingastadar af handahofi
      */
     @Query(value = "SELECT p.name FROM Restaurant p ORDER BY RANDOM() LIMIT 1)"
-    String giveRandomRes()
+    List giveRandomRes()
 
 
 }
