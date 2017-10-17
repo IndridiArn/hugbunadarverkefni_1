@@ -14,31 +14,39 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author Bjarki Hreinn ViÃ°arsson
- * Byggt Ã¡ DaginnKennari eftir Ebbu ÃžÃ³ru Hvannberg
- * @date oktÃ³ber 2017 HBV501G HugbÃºnaÃ°arverkefni 1 HÃ¡skÃ³li Ã�slands
+ * @author Hópur 23, Hugbúnaðarverkefni 1, 2017.
+ * Byggt á DaginnKennari eftir Ebbu Þóru Hvannberg
+ * @date október 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  *
  */
 @Controller
 @RequestMapping("/demo") // Notice here that the Request Mapping is set at the Class level
 public class SearchController {
+    /**
+     * Engar tilviksbreytur í þessum klasa svo það er engin
+     * þörf fyrir gettera og settera
+     *
+     */
 
-    // Tenging yfir Ã­ Ã¾jÃ³nustu klasa fyrir forritiÃ°
+    // Tenging yfir í þjónustu klasa fyrir forritið
     @Autowired
-    SearchService searchService;
-   
+    private SearchService searchService;
 
+    /**
+     * Einföld forsíða, lítil virkni
+     *
+     * @return vefsíða frontPage
+     */
     @RequestMapping("/frontPage")
-    public String frontPage()
-    {
+    public String frontPage() {
         return "demo/frontPage";
     }
 
     /**
-     * Spyr hvaÃ° notandinn heitir
+     * Spyr hvað notandinn heitir
      *
-     * @return vefsÃ­Ã°a meÃ° spurningu fyrir notanda
+     * @return vefsíða inputInfo með spurningu fyrir notanda
      */
     @RequestMapping("/spyrjaNotanda")
     public String spyrjaNotanda() {
@@ -46,16 +54,22 @@ public class SearchController {
     }
 
     /**
-     * Fall til aÃ° hlaÃ°a upplÃ½singum um
-     * nÃ½jan veitingastaÃ° inn Ã­ gagnagrunninn
+     * Fall til að hlaða upplýsingum um
+     * nýjan veitingastað inn í gagnagrunninn
      *
-     * @return vefsÃ­Ã°a meÃ° staÃ°festingu showNew
+     * @param model módel fyrir samskipti við viðmót
+     * @param name nafn veitingahúss
+     * @param type týpa veitingahúss
+     * @param info upplýsingar um veitingahús
+     *
+     * @return vefsíða showNew með staðfestingu
      */
+
     @RequestMapping(value = "/newRes", method = RequestMethod.POST)
     public String newRes(@RequestParam(value = "name", required = false) String name,
                          @RequestParam(value = "type", required = false) String type,
                          @RequestParam(value = "info", required = false) String info,
-                              ModelMap model) {
+                         ModelMap model) {
 
         Restaurant b = new Restaurant(name, type, 1, info);
         model.addAttribute("restaurant", b);
@@ -66,61 +80,58 @@ public class SearchController {
 
 
     /**
-     * Fall sem skilar niÃ°urstÃ¶Ã°um Ãºr leit eftir tegund veitingahÃºss
+     * Fall sem skilar niðurstöðum úr leit eftir tegund veitingahúss
      *
-     * @param model mÃ³del fyrir samskipti viÃ° viÃ°mÃ³t
-     * @param type tÃ½pa veitingahÃºss
+     * @param model módel fyrir samskipti við viðmót
+     * @param type týpa veitingahúss
      *
-     * @return vefsÃ­Ã°a meÃ° leitarniÃ°urstÃ¶Ã°um
+     * @return vefsíða allRestaurants með leitarniðurstöðum
      */
     @RequestMapping(value = "/typeResults", method = RequestMethod.POST)
     public String typeResults(@RequestParam(value = "type", required = false) String type,
-                                   ModelMap model) {
-        ArrayList<Restaurant> listi;
-        listi = (ArrayList<Restaurant>) searchService.findByType(type);
+                              ModelMap model) {
+        ArrayList < Restaurant > listi;
+        listi = (ArrayList < Restaurant > ) searchService.findByType(type);
         model.addAttribute("restaurants", listi);
         return "demo/allRestaurants";
     }
 
     /**
-     * Birtir lista af Ã¶llum veitingahÃºsunum
+     * Birtir lista af öllum veitingahúsunum
      *
-     * @param model mÃ³del fyrir samskipti viÃ° viÃ°mÃ³t
-     * @return vefsÃ­Ã°u meÃ° lista af veitingahÃºsum
+     * @param model módel fyrir samskipti við viðmót
+     *
+     * @return vefsíða allRestaurants með lista af veitingahúsum
      */
     @RequestMapping(value = "/allRes", method = RequestMethod.GET)
     public String allRes(Model model) {
-        ArrayList<Restaurant> listi;
-        listi = (ArrayList<Restaurant>) searchService.allRestaurants();
+        ArrayList < Restaurant > listi;
+        listi = (ArrayList < Restaurant > ) searchService.allRestaurants();
         model.addAttribute("restaurants", listi);
         return "demo/allRestaurants";
     }
-    
-    /**
-     * Gefur veitingastad af handahofi
-     * @param model model fyrir samskipti vid vidmot
-     * @return veitingastadur af handahofi
-     */
+
     @RequestMapping(value = "/randRes", method = RequestMethod.GET)
     public String randRes(Model model) {
-        ArrayList<Restaurant> listi;
-        listi = (ArrayList<Restaurant>) searchService.allRestaurants();
-        model.addAttribute("randomRestaurant", listi[(int)(listi.size()*Math.random())]);
+        ArrayList < Restaurant > listi;
+        ArrayList < Restaurant > res;
+        listi = (ArrayList < Restaurant > ) searchService.allRestaurants();
+        int num = (int)(1 + Math.random() * listi.size());
+        res = (ArrayList < Restaurant > ) searchService.randRes(num);
+        model.addAttribute("restaurant", res);
         return "demo/randomRestaurant";
     }
-    
-    
 
     /**
-     * Birtir lista af Ã¶llum veitingahÃºsunum
+     * Birtir lista af öllum veitingahúsunum
      *
-     * @param model mÃ³del fyrir samskipti viÃ° viÃ°mÃ³t
-     * @param r nafn veitingahÃºss sem upplÃ½singar skulu birtar um
-     * @return vefsÃ­Ã°u meÃ° upplÃ½singu um veitingahÃºsiÃ°
+     * @param model módel fyrir samskipti við viðmót
+     * @param r nafn veitingahúss sem upplýsingar skulu birtar um
+     * @return vefsíða info með upplýsingu um veitingahúsið
      */
     @RequestMapping(value = "/resInfo", method = RequestMethod.POST)
     public String resInfo(@ModelAttribute("restaurant") String r,
-                       ModelMap model) {
+                          ModelMap model) {
 
         String info;
         info = searchService.finnaInfo(r);
@@ -128,11 +139,6 @@ public class SearchController {
 
         return "demo/info";
     }
-
-
-
-
-
 
 
 }

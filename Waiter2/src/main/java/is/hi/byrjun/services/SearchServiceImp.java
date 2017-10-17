@@ -1,4 +1,3 @@
-
 package is.hi.byrjun.services;
 
 import is.hi.byrjun.model.Restaurant;
@@ -9,49 +8,80 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Bjarki Hreinn ViÃ°arsson
+ * @author Hópur 23, Hugbúnaðarforritun 1, 2017.
  * @date september 2017
- * HBV501G HugbÃºnaÃ°arverkefni 1
- * HÃ¡skÃ³li Ã�slands
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
  */
 @Service
 public class SearchServiceImp implements SearchService {
+    /**
+     * Engar tilviksbreytur í þessum klasa svo það er engin
+     * þörf fyrir gettera og settera
+     *
+     */
 
-    // Tenging yfir Ã­ safn af veitingahÃºsum
+    // Tenging yfir í safn af veitingahúsum
     @Autowired
-    RestaurantRepository restaurantRep;
+    private RestaurantRepository restaurantRep;
 
+
+    /**
+     * Bætir við veitingahúsi í restaurantRep
+     *
+     * @param r Restaurant
+     */
     @Override
     public void addRestaurant(Restaurant r) {
-         restaurantRep.save(r);    // Notum save en ekki add
+        // Notum save en ekki add
+        restaurantRep.save(r);
     }
 
+
+    /**
+     * Skilar öllum veitingahúsum í restaurantRep
+     *
+     * @return listi af veitingahúsum
+     */
     @Override
-    public List<Restaurant> allRestaurants() {
-        return restaurantRep.findAll();    // Notum findAll Ã­ staÃ°inn fyrir getAll
+    public List < Restaurant > allRestaurants() {
+        // Notum findAll í staðinn fyrir getAll
+        return restaurantRep.findAll();
     }
-    /*
-    @Override
-    public Restaurant save(Restaurant restaurant) {
-        return restaurantRep.save(restaurant);
-    }
-    */
 
 
+    /**
+     * Finnur veitingahús eftir tegund
+     *
+     * @param type String
+     * @return listi af veitingahúsum
+     */
     @Override
-    public List<Restaurant> findByType(String type) {
+    public List < Restaurant > findByType(String type) {
         return restaurantRep.findByType(type);
     }
 
+    /**
+     * Finnur veitingahús eftir tegund
+     *
+     * @param type String
+     * @return listi af veitingahúsum
+     */
+    @Override
+    public List < Restaurant > randRes(int num) {
+        return restaurantRep.randRes(num);
+    }
+
+
+    /**
+     * Finnur upplýsingar um veitingahús eftir nafni
+     *
+     * @param nafn String
+     */
     @Override
     public String finnaInfo(String nafn) {
         return restaurantRep.finnaInfo(nafn);
     }
-    
-    @Override
-    public list<Restaurant> giveRandomRes() {
-    	return restaurantRep.giveRandomRes();
-    }
 
-    
+
 }

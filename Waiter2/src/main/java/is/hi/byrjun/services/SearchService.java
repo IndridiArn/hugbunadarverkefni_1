@@ -6,42 +6,51 @@ import java.util.List;
 
 /**
  *
- * @author Bjarki Hreinn ViÃ°arsson
- * @date oktÃ³ber 2017
- * HBV501G HugbÃºnaÃ°arverkefni 1 HÃ¡skÃ³li Ãslands
+ * @author Bjarki Hreinn Viğarsson
+ * @date október 2017
+ * HBV501G Hugbúnağarverkefni 1 Háskóli Íslands
  *
  */
 public interface SearchService {
 
     /**
-     * Finnur veitingahÃºs eftir tegund
+     * Finnur veitingahús eftir tegund
      *
      * @param type String
-     * @return listi af veitingahÃºsum
+     * @return listi af veitingahúsum
      */
     public List<Restaurant> findByType(String type);
 
 
     /**
-     * Finnur upplÃ½singar um veitingahÃºs eftir nafni
+     * Finnur upplısingar um veitingahús eftir nafni
      *
      * @param nafn String
      */
     String finnaInfo(String nafn);
 
     /**
-     * BÃ¦tir viÃ° veitingahÃºsi Ã­ restaurantRep
+     * Bætir viğ veitingahúsi í restaurantRep
      *
      * @param r Restaurant
      */
     public void addRestaurant(Restaurant r);
 
     /**
-     * Skilar Ã¶llum veitingahÃºsum Ã­ restaurantRep
+     * Skilar öllum veitingahúsum í restaurantRep
      *
-     * @return listi af veitingahÃºsum
+     * @return listi af veitingahúsum
      */
     public List<Restaurant> allRestaurants();
+
+    /**
+     * Skilar öllum veitingahúsum í restaurantRep
+     *
+     * @return listi af veitingahúsum
+     */
+    public List<Restaurant> randRes(int num);
+
+
     
     //public Restaurant save(Restaurant restaurant);
 
