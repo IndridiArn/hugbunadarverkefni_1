@@ -30,8 +30,8 @@
 </head>
 <body>
     <c:choose>
-        <c:when test="${not empty restaurants}">
-            <table class="restaurants">
+        <c:when test="${not empty randomRestaurant}">
+            <table class="randomRestaurant">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -39,7 +39,7 @@
                         <th>Price</th>
                     </tr>
                 </thead>
-                <c:forEach var ="restaurant" items="${restaurants}">
+                <c:forEach var ="restaurant" items="${randomRestaurant}">
                     <tr>
                         <td>${restaurant.name} </td>
                         <td>${restaurant.type}</td>
@@ -49,7 +49,7 @@
             </table>
         </c:when>
         <c:otherwise>
-            <h3> No restaurants were found </h3>
+            <h3> No restaurant was found </h3>
         </c:otherwise>
     </c:choose>
     <br>
