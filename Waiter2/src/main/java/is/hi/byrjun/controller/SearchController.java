@@ -105,7 +105,7 @@ public class SearchController {
     public String randRes(Model model) {
         ArrayList<Restaurant> listi;
         listi = (ArrayList<Restaurant>) searchService.allRestaurants();
-        model.addAttribute("randomRestaurant", listi[listi.length*Math.random()]);
+        model.addAttribute("randomRestaurant", listi[(int)(listi.size()*Math.random())]);
         return "demo/randomRestaurant";
     }
     
