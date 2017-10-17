@@ -9,15 +9,15 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Bjarki Hreinn Viðarsson
+ * @author Bjarki Hreinn ViÃ°arsson
  * @date september 2017
- * HBV501G Hugbúnaðarverkefni 1
- * Háskóli Íslands
+ * HBV501G HugbÃºnaÃ°arverkefni 1
+ * HÃ¡skÃ³li Ã�slands
  */
 @Service
 public class SearchServiceImp implements SearchService {
 
-    // Tenging yfir í safn af veitingahúsum
+    // Tenging yfir Ã­ safn af veitingahÃºsum
     @Autowired
     RestaurantRepository restaurantRep;
 
@@ -28,7 +28,7 @@ public class SearchServiceImp implements SearchService {
 
     @Override
     public List<Restaurant> allRestaurants() {
-        return restaurantRep.findAll();    // Notum findAll í staðinn fyrir getAll
+        return restaurantRep.findAll();    // Notum findAll Ã­ staÃ°inn fyrir getAll
     }
     /*
     @Override
@@ -46,6 +46,11 @@ public class SearchServiceImp implements SearchService {
     @Override
     public String finnaInfo(String nafn) {
         return restaurantRep.finnaInfo(nafn);
+    }
+    
+    @Override
+    public list<Restaurant> giveRandomRes() {
+    	return restaurantRep.giveRandomRes();
     }
 
     

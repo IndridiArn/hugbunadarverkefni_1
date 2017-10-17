@@ -104,8 +104,8 @@ public class SearchController {
     @RequestMapping(value = "/randRes", method = RequestMethod.GET)
     public String randRes(Model model) {
         ArrayList<Restaurant> listi;
-        listi = (ArrayList<Restaurant>) searchService.allRestaurants();
-        model.addAttribute("randomRestaurant", listi[listi.length*Math.random()]);
+        listi = (ArrayList<Restaurant>) searchService.giveRandomRes();
+        model.addAttribute("randomRestaurant", listi);
         return "demo/randomRestaurant";
     }
     

@@ -39,6 +39,13 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long>{
      */
     @Query(value = "SELECT p.info FROM Restaurant p where p.name = ?1 ")
     String finnaInfo(String nafn);
+    
+    /**
+     * Gefur veitingastad af handahofi
+     * @return nafn veitingastadar af handahofi
+     */
+    @Query(value = "SELECT p.name FROM Restaurant p ORDER BY RANDOM() LIMIT 1)"
+    String giveRandomRes()
 
 
 }
