@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author Bjarki Hreinn Viðarsson
- * Byggt á DaginnKennari eftir Ebbu Þóru Hvannberg
- * @date október 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
+ * @author Bjarki Hreinn ViÃ°arsson
+ * Byggt Ã¡ DaginnKennari eftir Ebbu ÃžÃ³ru Hvannberg
+ * @date oktÃ³ber 2017 HBV501G HugbÃºnaÃ°arverkefni 1 HÃ¡skÃ³li Ã�slands
  *
  *
  */
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/demo") // Notice here that the Request Mapping is set at the Class level
 public class SearchController {
 
-    // Tenging yfir í þjónustu klasa fyrir forritið
+    // Tenging yfir Ã­ Ã¾jÃ³nustu klasa fyrir forritiÃ°
     @Autowired
     SearchService searchService;
    
@@ -36,9 +36,9 @@ public class SearchController {
     }
 
     /**
-     * Spyr hvað notandinn heitir
+     * Spyr hvaÃ° notandinn heitir
      *
-     * @return vefsíða með spurningu fyrir notanda
+     * @return vefsÃ­Ã°a meÃ° spurningu fyrir notanda
      */
     @RequestMapping("/spyrjaNotanda")
     public String spyrjaNotanda() {
@@ -46,10 +46,10 @@ public class SearchController {
     }
 
     /**
-     * Fall til að hlaða upplýsingum um
-     * nýjan veitingastað inn í gagnagrunninn
+     * Fall til aÃ° hlaÃ°a upplÃ½singum um
+     * nÃ½jan veitingastaÃ° inn Ã­ gagnagrunninn
      *
-     * @return vefsíða með staðfestingu showNew
+     * @return vefsÃ­Ã°a meÃ° staÃ°festingu showNew
      */
     @RequestMapping(value = "/newRes", method = RequestMethod.POST)
     public String newRes(@RequestParam(value = "name", required = false) String name,
@@ -66,12 +66,12 @@ public class SearchController {
 
 
     /**
-     * Fall sem skilar niðurstöðum úr leit eftir tegund veitingahúss
+     * Fall sem skilar niÃ°urstÃ¶Ã°um Ãºr leit eftir tegund veitingahÃºss
      *
-     * @param model módel fyrir samskipti við viðmót
-     * @param type týpa veitingahúss
+     * @param model mÃ³del fyrir samskipti viÃ° viÃ°mÃ³t
+     * @param type tÃ½pa veitingahÃºss
      *
-     * @return vefsíða með leitarniðurstöðum
+     * @return vefsÃ­Ã°a meÃ° leitarniÃ°urstÃ¶Ã°um
      */
     @RequestMapping(value = "/typeResults", method = RequestMethod.POST)
     public String typeResults(@RequestParam(value = "type", required = false) String type,
@@ -83,10 +83,10 @@ public class SearchController {
     }
 
     /**
-     * Birtir lista af öllum veitingahúsunum
+     * Birtir lista af Ã¶llum veitingahÃºsunum
      *
-     * @param model módel fyrir samskipti við viðmót
-     * @return vefsíðu með lista af veitingahúsum
+     * @param model mÃ³del fyrir samskipti viÃ° viÃ°mÃ³t
+     * @return vefsÃ­Ã°u meÃ° lista af veitingahÃºsum
      */
     @RequestMapping(value = "/allRes", method = RequestMethod.GET)
     public String allRes(Model model) {
@@ -95,13 +95,28 @@ public class SearchController {
         model.addAttribute("restaurants", listi);
         return "demo/allRestaurants";
     }
+    
+    /**
+     * Gefur veitingastad af handahofi
+     * @param model model fyrir samskipti vid vidmot
+     * @return veitingastadur af handahofi
+     */
+    @RequestMapping(value = "/randRes", method = RequestMethod.GET)
+    public String randRes(Model model) {
+        ArrayList<Restaurant> listi;
+        listi = (ArrayList<Restaurant>) searchService.allRestaurants();
+        model.addAttribute("randomRestaurant", listi[listi.length*Math.random()]);
+        return "demo/randomRestaurant";
+    }
+    
+    
 
     /**
-     * Birtir lista af öllum veitingahúsunum
+     * Birtir lista af Ã¶llum veitingahÃºsunum
      *
-     * @param model módel fyrir samskipti við viðmót
-     * @param r nafn veitingahúss sem upplýsingar skulu birtar um
-     * @return vefsíðu með upplýsingu um veitingahúsið
+     * @param model mÃ³del fyrir samskipti viÃ° viÃ°mÃ³t
+     * @param r nafn veitingahÃºss sem upplÃ½singar skulu birtar um
+     * @return vefsÃ­Ã°u meÃ° upplÃ½singu um veitingahÃºsiÃ°
      */
     @RequestMapping(value = "/resInfo", method = RequestMethod.POST)
     public String resInfo(@ModelAttribute("restaurant") String r,
