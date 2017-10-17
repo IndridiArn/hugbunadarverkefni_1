@@ -31,6 +31,7 @@
     <p>Buffet</p>
     <p>Casual dining</p>
     <p>Diner</p>
+    <p>Vietnamese</p>
 
 </form>
 
