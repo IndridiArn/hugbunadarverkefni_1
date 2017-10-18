@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Hópur 23, Hugbúnaðarverkefni 1, 2017.
+ * @author Hópur 23, Hugbúnaðarforritun 1, 2017.
  * @date september 2017
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
@@ -64,7 +64,7 @@ public class SearchServiceImp implements SearchService {
     /**
      * Finnur veitingahús eftir tegund
      *
-     * @param type String
+     * @param num int
      * @return listi af veitingahúsum
      */
     @Override
@@ -79,7 +79,7 @@ public class SearchServiceImp implements SearchService {
      * @param nafn String
      */
     @Override
-    public String finnaInfo(String nafn) {
+    public String finnaInfo(int nafn) {
         return restaurantRep.finnaInfo(nafn);
     }
 

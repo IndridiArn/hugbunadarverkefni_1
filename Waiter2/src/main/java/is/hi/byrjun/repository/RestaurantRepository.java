@@ -9,38 +9,38 @@ import org.springframework.data.jpa.repository.Query;
 
 /**
  *
- * @author Bjarki Hreinn Viğarsson
+ * @author Bjarki Hreinn ViÃ°arsson
  */
 
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long>{
     /**
-     * Nær í öll veitingahús
-     * @return listi af veitingahúsum
+     * NÃ¦r Ã­ Ã¶ll veitingahÃºs
+     * @return listi af veitingahÃºsum
      */
     List<Restaurant> findAll();
     
     /**
-     * Bætir viğ veitingahúsi
+     * BÃ¦tir viÃ° veitingahÃºsi
      * @param restaurant
      */
     Restaurant save (Restaurant restaurant);
 
 
     /**
-     * Finnur veitingahús eftir tegund
-     * @return listi veitingahúsa
+     * Finnur veitingahÃºs eftir tegund
+     * @return listi veitingahÃºsa
      */
     @Query(value = "SELECT p FROM Restaurant p where p.type = ?1 ")
     List<Restaurant> findByType(String type);
 
     /**
-     * Finnur upplısingar um veitingahús eftir nafni
-     * @return info strengur veitingahúss
+     * Finnur upplÃ½singar um veitingahÃºs eftir nafni
+     * @return info strengur veitingahÃºss
      */
-    @Query(value = "SELECT p.info FROM Restaurant p where p.name = ?1 ")
-    String finnaInfo(String nafn);
+    @Query(value = "SELECT p.info FROM Restaurant p where Id = ?1 ")
+    String finnaInfo(int nafn);
 
-    @Query(value = "SELECT p FROM Restaurant p WHERE Id = ?1")
+    @Query(value = "SELECT p FROM Restaurant p WHERE Id = ?1 ")
     List<Restaurant> randRes(int num);
 
 }

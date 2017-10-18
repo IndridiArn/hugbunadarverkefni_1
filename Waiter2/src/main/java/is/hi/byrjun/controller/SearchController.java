@@ -130,11 +130,11 @@ public class SearchController {
      * @return vefsíða info með upplýsingu um veitingahúsið
      */
     @RequestMapping(value = "/resInfo", method = RequestMethod.POST)
-    public String resInfo(@ModelAttribute("restaurant") String r,
+    public String resInfo(@ModelAttribute("restaurant") long r,
                           ModelMap model) {
 
         String info;
-        info = searchService.finnaInfo(r);
+        info = searchService.finnaInfo((int)r);
         model.addAttribute("restaurants", info);
 
         return "demo/info";

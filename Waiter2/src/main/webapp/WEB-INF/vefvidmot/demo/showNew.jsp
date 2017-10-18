@@ -8,18 +8,20 @@
 <head>
     <title>Restaurant added </title>
 </head>
+
 <body>
 
 <h1>${restaurant.getName()} has been added to the database</h1>
 <h2>Information ${restaurant} </h2>
 <form method="get" action="/demo/allRes">
- <input type="submit" value="All restaurants"/>
+    <input type="submit" value="All restaurants" />
 </form>
 
 <form method="get" action="/demo/spyrjaNotanda">
- <input type="submit" value="Back"/>
+    <input type="submit" value="Back" />
 </form>
 
 </body>
 <!-- method="POST" action="/demo/listiKennara" -->
+
 </html>

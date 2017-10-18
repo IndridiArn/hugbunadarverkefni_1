@@ -10,10 +10,10 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Bjarki Hreinn ViÃ°arsson
- * @date oktÃ³ber 2017
- * HBV501G HugbÃºnaÃ°arverkefni 1
- * HÃ¡skÃ³li Ã�slands
+ * @author Bjarki Hreinn Viðarsson
+ * @date október 2017
+ * HBV501G Hugbúnaðarverkefni 1
+ * Háskóli Íslands
  * 
  * Restaurant klasi inniheldur nafn kennarans og heimilisfang
  */
@@ -22,14 +22,14 @@ import javax.persistence.Table;
 @Entity
 @Table (name="restaurants")
 public class Restaurant {
-    
-    // Skilgrein id sem auÃ°kenni (e. identity)  hlutarins 
+
+    // Skilgrein id sem auðkenni (e. identity)  hlutarins
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;        // Lykill veitingahÃºss
-    private String name;    // Nafn veitingahÃºss
-    private String type;    // Tegund veitingahÃºss
-    private int price;      // VerÃ°flokkur veitingahÃºss
+    private Long id;        // Lykill veitingahúss
+    private String name;    // Nafn veitingahúss
+    private String type;    // Tegund veitingahúss
+    private int price;      // Verðflokkur veitingahúss
 
     public String getInfo() {
         return info;
@@ -41,11 +41,17 @@ public class Restaurant {
 
     private String info;
 
-    // SmiÃ°ur til aÃ° bÃºa til tÃ³man hlut. Hefur enga parametra
+    // Smiður til að búa til tóman hlut. Hefur enga parametra
     public Restaurant() {
     }
 
+    public void setId( long id) {
+        this.id = id;
+    }
 
+    public long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -73,7 +79,7 @@ public class Restaurant {
 
 
    
-    // HefÃ°bundinn smiÃ°ur
+    // Hefðbundinn smiður
     public Restaurant(String n, String t, int p, String i) {
         name = n;
         type = t;
@@ -81,14 +87,11 @@ public class Restaurant {
         info = i;
     }
 
-    // toString aÃ°ferÃ°
+    // toString aðferð
     @Override
     public String toString() {
         return String.format("<BR>" + "name: "+ name + "<BR>" +"type: "+ type +
                 "<BR>" +" price: "+ price + "<BR>" +" information: "+ info);
     }
-    
-    
-    
     
 }
