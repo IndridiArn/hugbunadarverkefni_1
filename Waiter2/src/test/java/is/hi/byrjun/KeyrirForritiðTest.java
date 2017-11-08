@@ -7,8 +7,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  *
- * @author Ebba Þóra Hvannberg
- * @date október 2017 
+ * @author Bjarki Hreinn og Sigurður Andri - Byggt á klasa eftir Ebbu Þóru Hvannberg
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  * 
  * Prófunarklasi sem athugar hvort forritið keyri 

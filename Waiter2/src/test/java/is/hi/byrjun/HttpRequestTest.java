@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  *
- * @author Ebba Þóra Hvannberg
- * @date október 2017 
+ * @author Bjarki Hreinn og Sigurður Andri - Byggt á klasa eftir Ebbu Þóru Hvannberg
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  * 
  * Prófunarklasi sem sendir URL á test web client
@@ -33,15 +33,15 @@ public class HttpRequestTest {
         private TestRestTemplate restTemplate;
          
         /**
-         * Aðferð til að athuga hvort virkar að senda HttpRequest á heimaslóðina og
-         * fá til baka síðu sem inniheldur Klukkan 
+         * Aðferð til að athuga hvort virkar að senda HttpRequest á spyrjaNotanda og
+         * fá til baka síðu sem inniheldur "Search"
         
          * @throws Exception
          */
 	@Test
         public void demoProf() throws Exception {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/demo/spyrjaNotanda",
-                String.class)).contains("Sýnidæmi");
+                String.class)).contains("Search");
     }
 
 }

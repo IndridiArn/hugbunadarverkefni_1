@@ -1,8 +1,7 @@
-
-
 package is.hi.byrjun.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 
 /**
@@ -27,7 +26,8 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;            // Lykillinn
     private String restaurant;  // Nafn veitingahúss sem review eru tengd við
-    private int rating;          // Einkunn veitingahúss
+    private int rating;         // Einkunn veitingahúss
+    @Size(min=1, max=100, message = "Strengur af vitlausri lengd")       // Þetta skilyrði er sett þröngt til að framkalla villu
     private String text;        // Stutt umsögn um staðinn
 
     // Smiður til að búa til tóman hlut. Hefur enga parametra

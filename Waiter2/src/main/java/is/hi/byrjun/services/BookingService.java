@@ -37,6 +37,9 @@ public interface BookingService {
      */
     public List<Booking> allBookings();
 
+    public boolean erALifi();
+
+
 
     // public Booking save(Booking booking);
 

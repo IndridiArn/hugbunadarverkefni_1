@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Byggt á DaginnKennari eftir Ebbu Þóru Hvannberg
  * @date október 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
+ * Controller klasi fyrir leitarvirkni sem stýrir því hvað
+ * forritið gerir við leitarinput frá notanda, þ.e.a.s.
+ * talar við service klasana og viewið.
  *
  */
 @Controller
@@ -44,8 +47,9 @@ public class SearchController {
      */
     @RequestMapping("/frontPage")
     public String frontPage() {
-        return "demo/frontPage";
+            return "demo/frontPage";
     }
+
 
     /**
      * Spyr hvað notandinn heitir
@@ -54,7 +58,8 @@ public class SearchController {
      */
     @RequestMapping("/spyrjaNotanda")
     public String spyrjaNotanda() {
-        return "demo/inputInfo";
+
+            return "demo/inputInfo";
     }
 
     /**
@@ -150,6 +155,7 @@ public class SearchController {
 
         return "demo/info";
     }
+
 
 
 }

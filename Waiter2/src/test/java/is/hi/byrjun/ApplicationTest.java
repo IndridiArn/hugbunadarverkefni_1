@@ -18,8 +18,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /**
  *
- * @author Ebba Þóra Hvannberg
- * @date október 2017 
+ * @author Bjarki Hreinn og Sigurður Andri - Byggt á klasa eftir Ebbu Þóru Hvannberg
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  * 
  * Prófunarklasi sem framkvæmir prófanir án þess að þurfa að kalla á þjóninn 
@@ -33,10 +33,10 @@ public class ApplicationTest {
         // Þjónninn (Tomcat) ekki keyrður upp 
         @Autowired
         private MockMvc mockMvc;
-         
+
         /**
-         * Aðferð til að athuga hvort virkar að senda HttpRequest á /nyrKennari
-         * og fá til baka nyrKennari.html síðuna sem inniheldur strenginn Karl
+         * Aðferð til að athuga hvort virkar að senda HttpRequest á /spyrjaNotanda
+         * og fá til baka inputInfo síðuna
          */
 	@Test 
         public void demoProf() throws Exception {

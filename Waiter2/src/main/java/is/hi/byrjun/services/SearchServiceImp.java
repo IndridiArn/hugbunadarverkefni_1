@@ -12,6 +12,11 @@ import org.springframework.stereotype.Service;
  * @date september 2017
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
+ *
+ * Implementation klasi fyrir searchService interfaceið.
+ * Útfærir service aðferðirnar og talar við repository
+ * klasana og nær þannig í viðeigandi gögn.
+ *
  */
 @Service
 public class SearchServiceImp implements SearchService {
@@ -91,6 +96,11 @@ public class SearchServiceImp implements SearchService {
     @Override
     public String finnaNafn(int nafn) {
         return restaurantRep.finnaNafn(nafn);
+    }
+
+    @Override
+    public boolean erALifi() {
+        return true;
     }
 
 

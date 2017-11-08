@@ -57,7 +57,7 @@ public interface SearchService {
      */
     public List<Restaurant> randRes(int num);
 
-
+    public boolean erALifi();
     
     //public Restaurant save(Restaurant restaurant);
 

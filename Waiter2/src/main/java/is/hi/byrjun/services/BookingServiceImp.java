@@ -46,5 +46,10 @@ public class BookingServiceImp implements BookingService {
     public List<Booking> findBooking(Long id) {
         return bookingRep.findByid(id);
     }
+
+    @Override
+    public boolean erALifi() {
+        return true;
+    }
     
 }

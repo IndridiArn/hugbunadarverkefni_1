@@ -9,10 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 /**
  *
@@ -55,16 +58,24 @@ public class ReviewController {
      */
     @RequestMapping(value = "/newRev", method = RequestMethod.POST)
     public String newRev(@RequestParam(value = "restaurant", required = false) String restaurant,
-                       @RequestParam(value = "rating", required = false) int rating,
-                       @RequestParam(value = "txt", required = false) String txt,
+                         @RequestParam(value = "rating", required = false) int rating,
+                         @RequestParam(value = "txt", required = false) String txt,
                        ModelMap model) {
 
+        Review r = new Review(restaurant, rating, txt);
+        model.addAttribute("review", r);
+        reviewService.addReview(r);
+            return "demo/confirmReview";
+
+
+        /*
         Review r = new Review(restaurant, rating, txt);
         model.addAttribute("review", r);
         reviewService.addReview(r);
 
         return "demo/confirmReview";
 
+        */
     }
 
     /**

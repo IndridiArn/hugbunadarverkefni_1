@@ -11,22 +11,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  *
- * @author Ebba Þóra Hvannberg
- * @date október 2017 
+ * @author Bjarki Hreinn og Sigurður Andri - Byggt á klasa eftir Ebbu Þóru Hvannberg
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
- * 
- * Prófunarklasi sem athugar hvort KennariController keyrir 
+ *
+ * Prófunarklasi sem athugar hvort SearchController keyrir
 */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SmokeTest {
     
-        @Autowired
+        @Autowired 
         SearchController searchController;
 
         /**
-         * Aðferð til að athuga hvort KennariController hlutur hefur verið búinn til 
+         * Aðferð til að athuga hvort SearchController hlutur hefur verið búinn til
          */
         
 	@Test

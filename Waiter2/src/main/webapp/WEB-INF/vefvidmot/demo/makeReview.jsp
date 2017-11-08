@@ -171,7 +171,7 @@
 <section>
     <h2>I would like to make a review</h2>
     <div>
-        <form method="POST" action="/demo/newRev">
+        <form method="POST" action="/demo/newRev" modelAttribute = "reviewForm">
             <table>
 
                 <tr>
