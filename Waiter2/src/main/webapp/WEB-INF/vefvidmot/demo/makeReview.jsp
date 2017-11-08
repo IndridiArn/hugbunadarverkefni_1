@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 
+<!-- Skilgreiningar á tögum sem hægt er að nota í HTML kóða -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
 <html lang="en">
 
 <head>
-    <title>Information </title>
+    <title>Write review</title>
     <link href="https://fonts.googleapis.com/css?family=Prociono|Fascinate+Inline" rel="stylesheet">
-
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-
-    </script>
 
     <style>
         h1 {
@@ -45,7 +39,7 @@
 
         section {
             width: 500px;
-            height: 300px;
+            height: 19.7em;
             margin-bottom: 2em;
             margin-left: 2.5em;
             border: solid;
@@ -54,7 +48,7 @@
 
         section.big {
             width: 37em;
-            height: 80em;
+            height: 28em;
             margin-left: 26em;
             padding: 0em 0em 0em 0em;
             margin-bottom: 2em;
@@ -71,41 +65,21 @@
             background-color: crimson;
         }
 
-
-
-        .tall {
-            height: 700px;
-        }
-
         div {
             background-color: darkcyan;
             border: solid;
-            height: 7em;
-            width: 15em;
+            height: 11em;
+            width: 26em;
             display: flex;
             justify-content: center;
-            padding-top: 0.75em;
-            margin-top: 4em;
+            padding-top: 1.75em;
+            margin-top: 1em;
             margin-right: 0em;
-            margin-left: 8em;
+            margin-left: 2.45em;
             margin-bottom: 9em;
             border-color: black;
         }
 
-        div.long {
-            background-color: darkcyan;
-            border: solid;
-            height: 23em;
-            width: 25em;
-            display: flex;
-            justify-content: center;
-            padding-top: 0.75em;
-            margin-top: 0.5em;
-            margin-right: 0em;
-            margin-left: 2.85em;
-            margin-bottom: 9em;
-            border-color: black;
-        }
 
         .button {
             display: inline-block;
@@ -134,35 +108,13 @@
             background-color: #333;
         }
 
-        .button.small {
-            width: 100%;
-            max-width: 4em;
-            padding: 7px 2px;
-            overflow: hidden;
-            margin: 0.5em 0 0 3.5em;
-            font-size: 1rem;
-            border-radius: 0.5em;
-            transition: background-color 500ms ease;
-        }
-
-        .button.info {
+        .button.submit {
             width: 100%;
             max-width: 7em;
             padding: 7px 6px;
             overflow: hidden;
-            margin: 0.5em 0px 0px 4em;
+            margin: 1.5em 0 0 5em;
             font-size: 0.9rem;
-            border-radius: 0.5em;
-            transition: background-color 500ms ease;
-        }
-
-        .button.tryAgain {
-            width: 100%;
-            max-width: 8em;
-            padding: 5px 2px;
-            overflow: hidden;
-            margin: 3.5em 2.6em 1.5em -6.5em;
-            font-size: 1rem;
             border-radius: 0.5em;
             transition: background-color 500ms ease;
         }
@@ -211,58 +163,56 @@
 
     </style>
 </head>
-
 <body>
+
 <section class="big">
     <h1 class="head">Waiter</h1>
-    <section>
 
-        <h2>${restaurants}</h2>
+<section>
+    <h2>I would like to make a review</h2>
+    <div>
+        <form method="POST" action="/demo/newRev">
+            <table>
 
-
-        <div>
-
-            <form method="get" action="/demo/spyrjaNotanda">
-                <input type="submit" value="New search" class="button info" />
-            </form>
-            <button onclick="goBack()" class="button tryAgain">Back to results</button>
-
-        </div>
-
-
-    </section>
-    <section class="long">
-
-        <h2>Reviews:</h2>
-
-        <c:choose>
-            <c:when test="${not empty reviews}">
-                <table class="reviews">
-                <thead>
                 <tr>
-                <th>Rating</th>
-                <th>Review</th>
+                    <td>For: </td>
+                    <td>
+
+                        <select name="restaurant" type="text">
+                            <c:forEach var="restaurants" items="${restaurants}">
+                                <option value=${restaurants.name}>${restaurants.name}</option>
+
+
+                            </c:forEach>
+                        </select>
+
+                    </td>
                 </tr>
-                </thead>
-                <c:forEach var="reviews" items="${reviews}">
-                    <tr>
-                        <td>${reviews.rating}</td>
-                        <td>${reviews.text}</td>
-                    </tr>
-                </c:forEach>
-                </table>
+                <tr>
+                    <td>Rating: </td>
+                    <td>
+                        <input name="rating" type="range" id="ageInputId" value="1" min="1" max="5" oninput="ageOutputId.value = ageInputId.value">
+                        <output name="ageOutputName" id="ageOutputId">1</output>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Review: </td>
+                    <td>
+                        <input name="txt" type="text" placeholder="Review text" /> </td>
+                </tr>
 
-        </c:when>
-        <c:otherwise>
-            <h2> No reviews were found </h2>
-        </c:otherwise>
-        </c:choose>
-        <br>
 
-    </section>
+            </table>
+            <br>
+
+
+            <input type="submit" value="Submit" class="button small" />
+        </form>
+    </div>
+
 </section>
+
 </section>
+
 </body>
-<!-- method="POST" action="/demo/listiKennara" -->
-
 </html>

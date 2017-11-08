@@ -83,5 +83,15 @@ public class SearchServiceImp implements SearchService {
         return restaurantRep.finnaInfo(nafn);
     }
 
+    /**
+     * Finnur upplýsingar um veitingahús eftir nafni
+     *
+     * @param nafn String
+     */
+    @Override
+    public String finnaNafn(int nafn) {
+        return restaurantRep.finnaNafn(nafn);
+    }
+
 
 }

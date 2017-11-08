@@ -30,6 +30,13 @@ public interface SearchService {
     String finnaInfo(int nafn);
 
     /**
+     * Finnur upplýsingar um veitingahús eftir nafni
+     *
+     * @param nafn String
+     */
+    String finnaNafn(int nafn);
+
+    /**
      * Bætir við veitingahúsi í restaurantRep
      *
      * @param r Restaurant

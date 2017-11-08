@@ -1,6 +1,8 @@
 package is.hi.byrjun.controller;
 
 import is.hi.byrjun.model.Restaurant;
+import is.hi.byrjun.model.Review;
+import is.hi.byrjun.services.ReviewService;
 import is.hi.byrjun.services.SearchService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,8 @@ public class SearchController {
     // Tenging yfir í þjónustu klasa fyrir forritið
     @Autowired
     private SearchService searchService;
+    @Autowired
+    private ReviewService reviewService;
 
     /**
      * Einföld forsíða, lítil virkni
@@ -136,6 +140,13 @@ public class SearchController {
         String info;
         info = searchService.finnaInfo((int)r);
         model.addAttribute("restaurants", info);
+
+        String n = searchService.finnaNafn((int)r);
+
+        ArrayList <Review> listi;
+        listi = (ArrayList < Review > ) reviewService.getReviews(n);
+
+        model.addAttribute("reviews", listi);
 
         return "demo/info";
     }

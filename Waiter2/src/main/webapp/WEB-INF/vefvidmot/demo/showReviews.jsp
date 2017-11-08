@@ -54,24 +54,13 @@
 
         section.big {
             width: 37em;
-            height: 80em;
+            height: 29em;
             margin-left: 26em;
             padding: 0em 0em 0em 0em;
             margin-bottom: 2em;
             border: solid;
             background-color: darkcyan;
         }
-
-        section.long {
-            width: 35.6em;
-            height: 50em;
-            margin-bottom: 2em;
-            margin-left: 0.5em;
-            border: solid;
-            background-color: crimson;
-        }
-
-
 
         .tall {
             height: 700px;
@@ -88,21 +77,6 @@
             margin-top: 4em;
             margin-right: 0em;
             margin-left: 8em;
-            margin-bottom: 9em;
-            border-color: black;
-        }
-
-        div.long {
-            background-color: darkcyan;
-            border: solid;
-            height: 23em;
-            width: 25em;
-            display: flex;
-            justify-content: center;
-            padding-top: 0.75em;
-            margin-top: 0.5em;
-            margin-right: 0em;
-            margin-left: 2.85em;
             margin-bottom: 9em;
             border-color: black;
         }
@@ -181,34 +155,6 @@
             margin-left: 10em;
         }
 
-        table.reviews {
-            border: 3px black solid;
-            border-collapse: collapse;
-            table-layout: fixed;
-            width: 35em;
-            margin-left: 0.3em;
-        }
-
-        .reviews td {
-            padding: 15px;
-            text-align: left;
-            border:solid 3px black;
-            width:100px;
-            word-wrap:break-word;
-        }
-
-        .reviews td+td+td {
-            width: 300px;
-        }
-
-        table.reviews tr:nth-child(even) {
-            background-color: antiquewhite;
-        }
-
-        table.reviews tr:nth-child(odd) {
-            background-color: azure;
-        }
-
     </style>
 </head>
 
@@ -231,36 +177,6 @@
 
 
     </section>
-    <section class="long">
-
-        <h2>Reviews:</h2>
-
-        <c:choose>
-            <c:when test="${not empty reviews}">
-                <table class="reviews">
-                <thead>
-                <tr>
-                <th>Rating</th>
-                <th>Review</th>
-                </tr>
-                </thead>
-                <c:forEach var="reviews" items="${reviews}">
-                    <tr>
-                        <td>${reviews.rating}</td>
-                        <td>${reviews.text}</td>
-                    </tr>
-                </c:forEach>
-                </table>
-
-        </c:when>
-        <c:otherwise>
-            <h2> No reviews were found </h2>
-        </c:otherwise>
-        </c:choose>
-        <br>
-
-    </section>
-</section>
 </section>
 </body>
 <!-- method="POST" action="/demo/listiKennara" -->

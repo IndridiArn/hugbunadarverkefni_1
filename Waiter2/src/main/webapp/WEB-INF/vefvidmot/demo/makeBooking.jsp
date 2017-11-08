@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-    <title>Hver er notandinn</title>
+    <title>Make booking</title>
 </head>
 <body>
 

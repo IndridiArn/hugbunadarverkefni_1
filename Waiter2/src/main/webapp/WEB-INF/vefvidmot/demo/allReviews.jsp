@@ -6,17 +6,8 @@
 <html lang="en">
 
 <head>
-    <title>Information </title>
+    <title>All reviews</title>
     <link href="https://fonts.googleapis.com/css?family=Prociono|Fascinate+Inline" rel="stylesheet">
-
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-
-    </script>
-
     <style>
         h1 {
             font-family: "Prociono", helvetica, arial, sans-serif;
@@ -54,24 +45,13 @@
 
         section.big {
             width: 37em;
-            height: 80em;
+            height: 73em;
             margin-left: 26em;
             padding: 0em 0em 0em 0em;
             margin-bottom: 2em;
             border: solid;
             background-color: darkcyan;
         }
-
-        section.long {
-            width: 35.6em;
-            height: 50em;
-            margin-bottom: 2em;
-            margin-left: 0.5em;
-            border: solid;
-            background-color: crimson;
-        }
-
-
 
         .tall {
             height: 700px;
@@ -80,30 +60,52 @@
         div {
             background-color: darkcyan;
             border: solid;
-            height: 7em;
+            height: 2em;
             width: 15em;
             display: flex;
             justify-content: center;
             padding-top: 0.75em;
-            margin-top: 4em;
+            margin-top: 2em;
             margin-right: 0em;
             margin-left: 8em;
             margin-bottom: 9em;
             border-color: black;
         }
 
-        div.long {
+        div.results {
+            height: 21em;
+            width: 21em;
+            padding-top: 0.75em;
+            margin-top: 2em;
+            margin-right: 0em;
+            margin-left: 5em;
+            margin-bottom: 2em;
+        }
+
+        div.newRes {
             background-color: darkcyan;
             border: solid;
-            height: 23em;
-            width: 25em;
+            height: 12em;
+            width: 16em;
             display: flex;
             justify-content: center;
-            padding-top: 0.75em;
+            margin-left: 7.3em;
             margin-top: 0.5em;
-            margin-right: 0em;
-            margin-left: 2.85em;
-            margin-bottom: 9em;
+            padding-top: 1.5em;
+            border-color: black;
+        }
+
+        div.info {
+            background-color: darkcyan;
+            border: solid;
+            height: 5em;
+            width: 11em;
+            display: flex;
+            justify-content: center;
+            margin-left: 8.5em;
+            margin-top: 0.5em;
+            margin-bottom: 0;
+            padding-left: 2rem;
             border-color: black;
         }
 
@@ -147,21 +149,21 @@
 
         .button.info {
             width: 100%;
-            max-width: 7em;
-            padding: 7px 6px;
+            max-width: 8em;
+            padding: 7px 2px;
             overflow: hidden;
-            margin: 0.5em 0px 0px 4em;
+            margin: 0.5em 0 0 1em;
             font-size: 0.9rem;
             border-radius: 0.5em;
             transition: background-color 500ms ease;
         }
 
-        .button.tryAgain {
+        .button.newSearch {
             width: 100%;
-            max-width: 8em;
-            padding: 5px 2px;
+            max-width: 7em;
+            padding: 7px 2px;
             overflow: hidden;
-            margin: 3.5em 2.6em 1.5em -6.5em;
+            margin: 0.5em 0 0 11.2em;
             font-size: 1rem;
             border-radius: 0.5em;
             transition: background-color 500ms ease;
@@ -173,39 +175,20 @@
             text-decoration: none;
         }
 
-        form {
-            height: 2em;
+        table.restaurants {
+            border: 1px black solid;
         }
 
-        script {
-            margin-left: 10em;
-        }
-
-        table.reviews {
-            border: 3px black solid;
-            border-collapse: collapse;
-            table-layout: fixed;
-            width: 35em;
-            margin-left: 0.3em;
-        }
-
-        .reviews td {
+        .restaurants td {
             padding: 15px;
             text-align: left;
-            border:solid 3px black;
-            width:100px;
-            word-wrap:break-word;
         }
 
-        .reviews td+td+td {
-            width: 300px;
-        }
-
-        table.reviews tr:nth-child(even) {
+        table.restaurants tr:nth-child(even) {
             background-color: antiquewhite;
         }
 
-        table.reviews tr:nth-child(odd) {
+        table.restaurants tr:nth-child(odd) {
             background-color: azure;
         }
 
@@ -215,42 +198,29 @@
 <body>
 <section class="big">
     <h1 class="head">Waiter</h1>
-    <section>
-
-        <h2>${restaurants}</h2>
-
-
-        <div>
-
-            <form method="get" action="/demo/spyrjaNotanda">
-                <input type="submit" value="New search" class="button info" />
-            </form>
-            <button onclick="goBack()" class="button tryAgain">Back to results</button>
-
-        </div>
-
-
-    </section>
-    <section class="long">
-
-        <h2>Reviews:</h2>
-
-        <c:choose>
+    <section class="tall">
+        <h2>All reviews</h2>
+        <div class="results">
+            <c:choose>
             <c:when test="${not empty reviews}">
-                <table class="reviews">
+            <table class="reviews">
                 <thead>
                 <tr>
-                <th>Rating</th>
-                <th>Review</th>
+                    <th>Restaurant</th>
+                    <th>Rating</th>
+                    <th>Review</th>
                 </tr>
                 </thead>
                 <c:forEach var="reviews" items="${reviews}">
                     <tr>
+                        <td>${reviews.restaurant} </td>
                         <td>${reviews.rating}</td>
                         <td>${reviews.text}</td>
                     </tr>
                 </c:forEach>
-                </table>
+            </table>
+        </div>
+
 
         </c:when>
         <c:otherwise>
@@ -259,10 +229,15 @@
         </c:choose>
         <br>
 
+        <!-- Notandi getur hafið nýja leit í gegnum þennan hlekk -->
+        <a href="http://localhost:8080/demo/spyrjaNotanda" class="button newSearch">New search</a>
     </section>
-</section>
+
+
+
+    <!-- Hér getur notandi slegið inn hvaða veitingastað hann hefur áhuga á  -->
+
 </section>
 </body>
-<!-- method="POST" action="/demo/listiKennara" -->
 
 </html>

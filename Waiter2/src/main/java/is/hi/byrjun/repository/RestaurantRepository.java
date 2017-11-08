@@ -43,4 +43,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long>{
     @Query(value = "SELECT p FROM Restaurant p WHERE Id = ?1 ")
     List<Restaurant> randRes(int num);
 
+    @Query(value = "SELECT p.name FROM Restaurant p where Id = ?1 ")
+    String finnaNafn(int nafn);
+
 }

@@ -48,7 +48,7 @@
 
         section.big {
             width: 37em;
-            height: 70em;
+            height: 91em;
             margin-left: 26em;
             padding: 0em 0em 0em 0em;
             margin-bottom: 2em;
@@ -94,7 +94,7 @@
             display: flex;
             justify-content: center;
             margin-left: 6em;
-            margin-top: 0.5em;
+            margin-top: 0;
             padding-top: 1.5em;
             border-color: black;
         }
@@ -182,6 +182,17 @@
         <div class="randRes">
 
             <a href="http://localhost:8080/demo/randRes" class="button">Random search!</a>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Write a review</h2>
+        <div class="randRes">
+
+            <a href="http://localhost:8080/demo/mkRev" class="button">Add review</a>
 
         </div>
 
