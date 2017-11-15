@@ -1,27 +1,23 @@
-# SpringBootMVC
-Project skeleton for Software Project class in the University of Iceland.
+# Waiter
+Project for the Software Project 1 class in the University of Iceland.
 
 ## How do I get this ?
 Your IDE ([IntelliJ](https://www.jetbrains.com/idea/), [Eclipse](https://eclipse.org/), [Spring Tool Suit](https://spring.io/tools)) should be able to clone a project from Github.
 It should be easy to find information regarding how to do that for your chosen IDE.
-It's also possible to download the project as a .zip [here](https://github.com/mbook/SpringBootMVC/archive/master.zip).
 
 ## How do I run this ?
 This project is setup using [Maven](https://maven.apache.org/what-is-maven.html) as a dependency manager, so if your IDE does not manage that, or you don't have it installed you can look [here](https://maven.apache.org/install.html) for further information.
-When all the dependencies are downloaded, you can run the project by running the ``main()`` method in the class ``Application`` and then enter [localhost:8080](http://localhost:8080) into the address bar of your favorite web browser.
-
-## What is going on ?
-Look at the code and find the comments I wrote. I tried explaining what was happening in such a way that it should hopefully be easy to understand.
+When all the dependencies are downloaded, you can run the project by running the ``main()`` method in the class ``Application`` and then enter [localhost:8080](http://localhost:8080) into the address bar of your favorite web browser. You can also run the project through https://waiterhbv1.herokuapp.com/demo/frontPage.
 
 ### What did you use to make this ?
-I used IntelliJ Ultimate with Maven to setup this project. Students and Teachers get the Ultimate edition for free, apply [here](https://www.jetbrains.com/student/).
+We used IntelliJ IDEA with Maven to develop this project. Students and Teachers get the Ultimate edition for free, apply [here](https://www.jetbrains.com/student/).
 
 ### Database
-This project assumes there is a database called HBV at the URL: postgresql://localhost:5432/HBV .   
-See username and password in [application.properties](https://github.com/danielpall/SpringBootMVC/blob/master/src/main/resources/application.properties)
+This project assumes there is a database at the URL: postgresql://ec2-184-72-255-211.compute-1.amazonaws.com:5432/d6icbirdmfu215 
+See username and password in this project's [application.properties]
 
 ### Where can I find help ?
-In case of any questions, please refer to the "Spring Boot Intro" slides in the HBV501G Verkefni folder on Ugla, or contact your tutor.
+In case of any questions, please contact bhv2@hi.is.
 
 ### Credits
-This skeleton project was originally created by Daníel Páll Jóhannsson while tutoring the HBV501G course in Fall 2015. Daníel has since moved on to work at TM Software. Therefore, please direct any questions to *your own* tutors - thanks :-)
+This project was created by Bjarki Hreinn Viðarsson, Grétar Guðmundur Sæmundsson, Indriði Arnaldsson and Sigurður Andri Jóhannesson, students in the HBV501G course in Fall 2017.

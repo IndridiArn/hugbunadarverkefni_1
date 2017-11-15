@@ -1,0 +1,132 @@
+/* CSS skrá fyrir inputInfo.jsp skránna */
+
+h1 {
+    font-family: "Prociono", helvetica, arial, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1.head {
+    font-family: "Fascinate Inline", helvetica, arial, sans-serif;
+    text-align: center;
+    font-size: 5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    padding-top: 1em;
+    margin-bottom: 0;
+    font-family: "Prociono", helvetica, arial, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 2em;
+}
+
+section {
+    width: 500px;
+    height: 300px;
+    margin-bottom: 2em;
+    margin-left: 2.5em;
+    border: solid;
+    background-color: crimson;
+}
+
+section.big {
+    width: 37em;
+    height: 91em;
+    margin-left: 26em;
+    padding: 0em 0em 0em 0em;
+    margin-bottom: 2em;
+    border: solid;
+    background-color: darkcyan;
+}
+
+div {
+    background-color: darkcyan;
+    border: solid;
+    height: 2em;
+    width: 15em;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.75em;
+    margin-top: 2em;
+    margin-right: 0em;
+    margin-left: 8em;
+    margin-bottom: 9em;
+    border-color: black;
+}
+
+div.randRes {
+    background-color: darkcyan;
+    border: solid;
+    height: 4em;
+    width: 15em;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.75em;
+    margin-top: 2em;
+    margin-right: 0em;
+    margin-left: 8em;
+    margin-bottom: 9em;
+    border-color: black;
+}
+
+div.newRes {
+    background-color: darkcyan;
+    border: solid;
+    height: 10em;
+    width: 20em;
+    display: flex;
+    justify-content: center;
+    margin-left: 6em;
+    margin-top: 0;
+    padding-top: 1.5em;
+    border-color: black;
+}
+
+.button {
+    display: inline-block;
+    width: 100%;
+    max-width: 10em;
+    padding: 14px 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    font-family: "Open Sans", helvetica, arial, sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: black;
+    border: solid;
+    border-radius: 2em;
+    border-color: white;
+    transition: background-color 500ms ease;
+}
+
+.button:hover {
+    color: #eee;
+    background-color: #333;
+}
+
+.small {
+    width: 100%;
+    max-width: 4em;
+    padding: 7px 2px;
+    overflow: hidden;
+    margin: -0.5em 0 0 5.5em;
+    font-size: 1rem;
+    border-radius: 0.5em;
+    transition: background-color 500ms ease;
+}
+
+a.button {
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+}
